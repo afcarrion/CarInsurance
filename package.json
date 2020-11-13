@@ -7,7 +7,8 @@
     "test": "mocha spec/*.js",
     "ts": "tsc -w",
     "dev": "nodemon ./build/server.js",
-    "start": "tsc && node ./build/server.js"
+    "start": "tsc && node ./build/server.js",
+    "after-30-days": "mocha src/test/after30Days.js"
   },
   "repository": {
     "type": "git",

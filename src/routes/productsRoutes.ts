@@ -13,6 +13,7 @@ class ProductsRoutes{
     }
 
     getProducts(req: Request, res: Response){
+        let listArrayProducts;
         const productsAtDayZero =  [
             new Product('Medium Coverage', 10, 20),
             new Product('Full Coverage', 2, 0),
@@ -25,18 +26,21 @@ class ProductsRoutes{
             new Product('Super Sale', 3, 6)
         ];
         const carsInsurance = new CarsInsurance(productsAtDayZero);
-        const productPrinter = function (product) {
+        const productPrinter = function (product:Product) {
             console.log(`${product.name}, ${product.sellIn}, ${product.price}`);
         };
+        
         for (let i = 1; i <= 30; i += 1) {
             console.log(`Day ${i}`);
             console.log('name, sellIn, price');
             carsInsurance.updatePrice().forEach(productPrinter);
             console.log('');
         }
-        /*const product =  carsInsurance.updatePrice();
-        console.log(product);*/
-        res.send('Products');
+        console.log();
+        res.status(200).json({
+            message: "Process Sucessfull",
+
+        });
     }
 
     routes(){

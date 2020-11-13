@@ -14,6 +14,7 @@ class ProductsRoutes {
         this.product = products_1.default;
     }
     getProducts(req, res) {
+        let listArrayProducts;
         const productsAtDayZero = [
             new products_1.default('Medium Coverage', 10, 20),
             new products_1.default('Full Coverage', 2, 0),
@@ -35,9 +36,10 @@ class ProductsRoutes {
             carsInsurance.updatePrice().forEach(productPrinter);
             console.log('');
         }
-        /*const product =  carsInsurance.updatePrice();
-        console.log(product);*/
-        res.send('Products');
+        console.log();
+        res.status(200).json({
+            message: "Process Sucessfull",
+        });
     }
     routes() {
         this.router.get('/', this.getProducts);
